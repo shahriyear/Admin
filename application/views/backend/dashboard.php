@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Shahriyear</title>
+	<title><?= $title?></title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -29,9 +29,17 @@
 	<script src="<?= base_url()?>assets/backend/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
 	<script src="<?= base_url()?>assets/backend/js/plugins/ui/moment/moment.min.js"></script>
 	<script src="<?= base_url()?>assets/backend/js/plugins/pickers/daterangepicker.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/plugins/notifications/pnotify.min.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/plugins/tables/datatables/datatables.min.js"></script>
+
+	<script src="<?= base_url()?>assets/backend/js/plugins/forms/styling/uniform.min.js"></script>
 
 	<script src="<?= base_url()?>assets/backend/full/js/app.js"></script>
 	<script src="<?= base_url()?>assets/backend/js/demo_pages/dashboard.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/demo_pages/extra_pnotify.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/demo_pages/form_checkboxes_radios.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/demo_pages/datatables_advanced.js"></script>
+	<script src="<?= base_url()?>assets/backend/js/demo_pages/form_inputs.js"></script>
 	<!-- /theme JS files -->
 
 </head>
@@ -257,7 +265,7 @@
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
 						<img src="<?= base_url()?>assets/backend/images/placeholders/placeholder.jpg" class="rounded-circle" alt="">
-						<span>Victoria</span>
+						<span><?php echo $this->ion_auth->user()->row()->username ; ?></span>
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
@@ -307,9 +315,13 @@
 							</div>
 
 							<div class="media-body">
-								<div class="media-title font-weight-semibold">Victoria Baker</div>
+								<div class="media-title font-weight-semibold">
+									<?php echo $this->ion_auth->user()->row()->username; ?>
+
+								</div>
 								<div class="font-size-xs opacity-50">
-									<i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA
+									<!-- <i class="icon-pin font-size-sm"></i> &nbsp; -->
+									<?php echo $this->ion_auth->user()->row()->email; ?>
 								</div>
 							</div>
 
@@ -322,33 +334,9 @@
 				<!-- /user menu -->
 
 
-				<!-- Main navigation -->
-				<div class="card card-sidebar-mobile">
-					<ul class="nav nav-sidebar" data-nav-type="accordion">
-
-						<!-- Main -->
-						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
-						<li class="nav-item">
-							<a href="#" class="nav-link active">
-								<i class="icon-home4"></i>
-								<span>
-									Dashboard
-								</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?= base_url('auth')?>" class="nav-link">
-								<i class="icon-home4"></i>
-								<span>
-									User
-								</span>
-							</a>
-						</li>
-						
-
-					</ul>
-				</div>
-				<!-- /main navigation -->
+				<!-- Main navigation || Menu Bar-->
+					<?php $this->load->view('backend/partials/menubar_content'); ?>
+				<!-- /main navigation || Menu Bar-->
 
 			</div>
 			<!-- /sidebar content -->
@@ -368,7 +356,7 @@
 					<div class="d-flex">
 						<div class="breadcrumb">
 							<a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-							<span class="breadcrumb-item active">Dashboard</span>
+							<span class="breadcrumb-item active"><?= $miniTitle?></span>
 						</div>
 
 						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>

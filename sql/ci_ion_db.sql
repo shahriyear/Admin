@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 10, 2018 at 05:14 PM
+-- Generation Time: Oct 11, 2018 at 10:29 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `groups`
@@ -58,13 +58,6 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '::1', 'admin', 1539181772);
 
 -- --------------------------------------------------------
 
@@ -92,14 +85,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `company` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'admin', '$2y$08$CER9DnQYWlCdby3JLTHXGe9NcIPPMdY.UI4s8EJNZBl0nenmc9L3a', '', 'admin@admin.com', '', NULL, NULL, '62FybXGPVeCErmQSr91O2u', 1268889823, 1539191561, 1, 'Shahriyear', 'Hossain', 'ThemeBull', '01749798295');
+(1, '127.0.0.1', 'admin', '$2y$08$CER9DnQYWlCdby3JLTHXGe9NcIPPMdY.UI4s8EJNZBl0nenmc9L3a', '', 'admin@admin.com', '', NULL, NULL, '62FybXGPVeCErmQSr91O2u', 1268889823, 1539295168, 1, 'Shahriyear', 'Hossain', 'ThemeBull', '01749798295'),
+(6, '::1', 'no@admin.com', '$2y$08$7jlmAz7oWXaP1QjSLhMc2uyCRFaMULOE2G3Xgb0KER0fdNQSXq3V.', NULL, 'no@admin.com', NULL, NULL, NULL, NULL, 1539295075, 1539295129, 1, 'no', 'admin', 'not a admin', '');
 
 -- --------------------------------------------------------
 
@@ -116,15 +110,16 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
   KEY `fk_users_groups_users1_idx` (`user_id`),
   KEY `fk_users_groups_groups1_idx` (`group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(7, 1, 1),
-(8, 1, 2);
+(45, 1, 1),
+(46, 1, 2),
+(47, 6, 2);
 
 --
 -- Constraints for dumped tables
