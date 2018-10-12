@@ -170,12 +170,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #fff;  
+  /*background: #fff;  */
 }
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
 }
 
 
@@ -190,7 +189,7 @@ iframe {
   display: block;
   font-family: Poppins-Bold;
   font-size: 39px;
-  color: #333333;
+  color: #fff;
   line-height: 1.2;
   text-align: center;
 }
@@ -219,13 +218,13 @@ iframe {
 
 .input100 {
   font-family: Poppins-SemiBold;
-  font-size: 18px;
-  color: #555555;
+  font-size: 14px;
+  color: #fff;
   line-height: 1.2;
 
   display: block;
   width: 100%;
-  height: 52px;
+  height: 36px;
   background: transparent;
   padding: 0 5px;
 }
@@ -261,7 +260,7 @@ iframe {
 .focus-input100::after {
   font-family: Poppins-Medium;
   font-size: 18px;
-  color: #999999;
+  color: #fff;
   line-height: 1.2;
 
   content: attr(data-placeholder);
@@ -343,6 +342,7 @@ iframe {
 }
 
 .login100-form-btn:hover  {
+  cursor: pointer;
   background-color: #333333;
   box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
@@ -400,7 +400,7 @@ iframe {
 
   display: block;
   position: absolute;
-  background-color: #fff;
+  /*background-color: #fff;*/
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -445,4 +445,67 @@ iframe {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 0;
+}
+
+
+#login-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+body#login-bg:before {
+    content: '';
+    background: rgba(31, 40, 62, 0.8);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+form.login100-form.validate-form {
+  position: relative;
+}
+#infoMessage {
+  background: #57b846;
+  padding: 5px 10px;
+  color: #fff;
+}
+#infoMessage p {
+  color: inherit;
+}
+.chkbx {
+  border: 0;
+  float: left;
+  display: block;
+}
+.chkbx .inner-chkbx {
+  position: absolute;
+  right: 0;
+  text-align: right; 
+}
+.chkbx label, input[type=checkbox], input[type=radio] {
+  color: #555;
+}
+input[type=checkbox] {
+  background: #000;
+}
+.chkbx label {
+  font-size: 12px;
+  vertical-align: text-top;
+}
+.focus-input100::after {
+  font-size: 14px;
+}
+.input100:focus + .focus-input100::after {
+    top: -15px;
+    font-size: 14px;
 }

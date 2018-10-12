@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
+  <title><?= $title ?></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -27,8 +27,18 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/login/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
-  
+<body id="login-bg" style="background-image: url(<?= base_url('assets/login/images/body-bg.jpg')?> );">
+
+
+
+
+
+
+
+
+
+
+
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100 p-t-10 p-b-20">
@@ -37,19 +47,19 @@
              <?php echo lang('login_heading');?>
              <?php //echo lang('login_subheading');?>
           </span>
-          
+     <?php if (isset($message)):?>     
       <div id="infoMessage"><?php echo $message;?></div>
-
-          <div class="wrap-input100 validate-input m-t-10 m-b-50" data-validate = "Enter username">
+    <?php endif; ?>
+          <div class="wrap-input100 validate-input m-t-20 m-b-30" data-validate = "Enter E-mail">
 
             <?php 
               $identity['class']='input100';
               echo form_input($identity);
             ?>
-            <span class="focus-input100" data-placeholder="Username"></span>
+            <span class="focus-input100" data-placeholder="E-mail"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+          <div class="wrap-input100 validate-input m-b-15" data-validate="Enter Password">
             <?php 
               $password['class']='input100';
               echo form_input($password);
@@ -58,9 +68,10 @@
           </div>
 
           
-          <div class="wrap-input100 validate-input m-b-50">
-          <?php echo lang('login_remember_label', 'remember');?>
-          <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
+          <div class="wrap-input100 validate-input m-b-40 chkbx">
+          <div class="inner-chkbx">
+            <?php echo lang('login_remember_label', 'remember');?>
+            <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?></div>
           </div>
 
           <div class="container-login100-form-btn">
@@ -81,7 +92,20 @@
   
 
   <div id="dropDownSelect1"></div>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--===============================================================================================-->
   <script src="<?= base_url()?>assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
